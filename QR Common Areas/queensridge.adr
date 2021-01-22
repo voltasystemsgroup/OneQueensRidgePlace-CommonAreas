@@ -1,0 +1,11 @@
+[Entries]
+NSP1 LOBBY=tcp 10.17.4.70
+RMC LOBBY=tcp 10.17.4.100
+
+[Settings]
+DefaultEntry=
+
+[Comments]
+NSP1 LOBBY=
+RMC LOBBY=
+

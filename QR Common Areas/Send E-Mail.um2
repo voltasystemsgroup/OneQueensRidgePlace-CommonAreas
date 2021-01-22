@@ -1,0 +1,868 @@
+[
+Version=1
+]
+[
+ObjTp=FSgntr
+Sgntr=UserMacro
+RelVrs=2.03.18
+IntStrVrs=2
+MinSMWVrs=0
+MinTIOVrs=0
+SavedBy=SMW2.03.18
+]
+[
+ObjTp=Hd
+S0Nd=1
+S1Nd=2
+SLNd=3
+PrNm=Send E-Mail.umc
+DbVr=15.8.6
+PgmNm=PAC
+CltNm=Send E-Mail
+Incl=362,380,405,407,408,409,478,522,537,
+McNm=Send E-Mail
+SmVr=202
+DvVr=202
+TpN1=1
+TpN2=2
+TpN3=3
+TpN4=4
+TpN5=5
+Cmn1=SIMPLWINDOWS NAME: Send E-Mail\\\\CATEGORY: e-control Software\\\\VERSION:
+Cmn2=||11.0\\\\SUMMARY: Sends email.\\\\\\GENERAL NOTES: This module sends||1
+Cmn3=email. It will send precanned email\\or email messages entered with||1
+Cmn4=a keyboard emulator. There are many\\things to consider when sending||1
+Cmn5=email.\\\\IMPORTANT SEND MAIL CONSIDERATIONS:\\\\1)In the SIMPL+||1
+Cmn6=function call to "Send Mail", the parameters "Mailserv",\\  "To"||1
+Cmn7=and "From" fields are MANDATORY, whereas "cc", "subject" and\\||2
+Cmn8="message" are not. \\\\2) Only the "SMTP AUTH" authentication type||1
+Cmn9=with "LOGIN" authentication\\   scheme is supported for now.\\\\3)||1
+Cmn10=Questions for the ISP/e-mail service provider to determine compatibility\\||1
+Cmn11=||2with the SEND MAIL feature.\\     A) Does the ISP/service provider||1
+Cmn12=support NON-WEB clients?\\     B) Does the ISP/service provider||1
+Cmn13=support "SMTP AUTH" authentication\\        type with" LOGIN" authentication||1
+Cmn14=scheme?\\     For example: the e-mail provider SBC YAHOO supports||1
+Cmn15=web as well as\\     non web clients. For non web clients, one of||1
+Cmn16=the mail servers to\\     communicate with is SMTPAUTH.FLASH.NET.
+Cmn17=||1This mail server supports\\     SMTP AUTH and LOGIN auth scheme.
+Cmn18=\\\\4) SEND MAIL client queries the mail server to determine the||1
+Cmn19=authentication\\   type and scheme and returns an "unsupported"||1
+Cmn20=error (error # -9) if the\\   mail-server does not support LOGIN||1
+Cmn21=scheme; however if the client is unable\\   to determine information||1
+Cmn22=regarding the schemes supported, it will go ahead\\   and try to||1
+Cmn23=send out the e-mail to the intended recipients, but the server\\||1
+Cmn24=||2may refuse to relay it to external destinations. This will return||1
+Cmn25=a "failure"\\   code, which is a POSITIVE integer (Refer SIMPL+||1
+Cmn26=Help, version 2.03.12 and greater )\\\\5) For mail servers needing||1
+Cmn27=no authentication, the "username" and "password"\\   field are set||1
+Cmn28=to an EMPTY STRING (""). Again, as in (4) above there is no\\||3
+Cmn29=guarantee that the mail-server will relay the e-mail to external||1
+Cmn30=destinations.\\\\6) In case of an error/failure, the first occurring||1
+Cmn31=error/failure code is returned.\\\\7) The "Mail-server" parameter||1
+Cmn32=in the SIMPL+ function call to Send Mail can be an\\   IP address,||1
+Cmn33=ex. "132.149.6.220" or a name "mail1.Mycompanyname.com". In case||1
+Cmn34=of\\   a name, DNS will be used to resolve the name. A DNS IP Address||1
+Cmn35=will need to be\\   added to the control system. This is done using||1
+Cmn36=the ADDDns command from viewport.\\\\8) REMINDER: Strings in SIMPL||1
+Cmn37=can only be 256 characters long. But internal to\\   SIMPL+ they||1
+Cmn38=can be concatenated to a total length of 65536 characters.\\\\\\\\CRESTRON||1
+Cmn39=HARDWARE REQUIRED: PRO2, AV2, CP2E, MP2E\\\\\\INPUT DESCRIPTIONS:
+Cmn40=||1\\\\Name                   Type Description\\Clear_Fields||6
+Cmn41=||7D  Pulse to clear the text from the To, CC, Subject and Message||1
+Cmn42=fields.\\Edit_*                   D  Pulse to select or deselect||1
+Cmn43=the field to edit. This is for manually\\||G
+Cmn44=||5entering the text.\\To$                      S  Input for the||1
+Cmn45=To: field. This is mandatory. You may enter more than\\||9
+Cmn46=||Cone address by using a semi-colon between the||1
+Cmn47=addresses. Max characters is 255.\\CC$                      S  Input||1
+Cmn48=for the CC: field. This is optional. You may enter more than\\||2
+Cmn49=||Jone address by using a semi-colon between||1
+Cmn50=the addresses. If do not\\                            want to use||1
+Cmn51=this field, enter a "". Max characters is 255.\\Subject$||8
+Cmn52=||9S  Input for the Subject: field. This is optional. If do||1
+Cmn53=not\\                            want to use this field, enter a||1
+Cmn54="". Max characters is 255.\\Message$                 S  Input for||1
+Cmn55=the Message: field. This is optional. If do not\\||?
+Cmn56=||=want to use this field, enter a "". Max characters||1
+Cmn57=is 255.\\Text_From_Keyboard$      S  Serial input will be sent to||1
+Cmn58=the field indicated by the Edit_*_Fb.\\||I
+Cmn59=||3If no Edit_*_Fb is high, this will be ignored.\\Send||9
+Cmn60=||<D  Pulse to send the email. This will clear the Status_Description$||1
+Cmn61=output\\                            and the 3 digital message status||1
+Cmn62=outputs. The error number will be \\||L
+Cmn63=set to 1000.\\\\PARAMETER DESCRIPTIONS: \\\\Name||@
+Cmn64=||BType Description\\From:(Max 242 Characters)||3
+Cmn65=||<P  Parameter field for the email account sending the||1
+Cmn66=email.\\                                           This field is||1
+Cmn67=mandatory.\\Server:(Max 40 Characters)              P  Parameter||1
+Cmn68=field for the mail server address. This may be\\||@
+Cmn69=||KXXX.XXX.XXX.XXX or it may be a name like||1
+Cmn70=mail1.mail.com.\\                                           This||1
+Cmn71=field is mandatory.\\User Login Name(Max 254 Characters)     P||2
+Cmn72=Parameter field for the user login name to login to the\\||7
+Cmn73=||Temail server with. This may||1
+Cmn74=be optional. If you are not\\||S
+Cmn75=||8using this field, enter a "".\\User Login Password(Max 254||1
+Cmn76=Characters) P  Parameter field for the user login password to login||1
+Cmn77=to\\                                           the email server||1
+Cmn78=with. This may be optional. If you are\\||H
+Cmn79=||Cnot using this field, enter a "".\\\\OUTPUT DESCRIPTIONS:
+Cmn80=||1\\\\Name                    Type Description\\Edit_*_Fb||8
+Cmn81=||9D  High to indicate which field is being editted. if one||1
+Cmn82=of these is\\                             high, text on the Text_From_Keyboard$||1
+Cmn83=input wiil be sent to that field.\\To_Fb$                    S||2
+Cmn84=Output to show the current to list.\\CC_Fb$                    S||1
+Cmn85=||1Output to show the current cc list.\\Subject_Fb$||?
+Cmn86=S  Output to show the current subject line.\\Message_Fb$||8
+Cmn87=||7S  Output to show the current message text.\\Message_Successfully_Sent||1
+Cmn88=D  High to indicate that the last message was sent succesfully.\\Message_Sent_With_Errors||1
+Cmn89=||1D  High to indicate that the last message was sent, but there was||1
+Cmn90=an error\\                             in the to list, or the cc||1
+Cmn91=list, or the message body.\\Message_Not_Sent          D  High to||1
+Cmn92=indicate that the message was not sent. There are a number of\\||1
+Cmn93=||Lpossible reasons for this.\\Error_Number||1
+Cmn94=||=A  Analog value indicating the error number. A value||1
+Cmn95=of 1000 indicates that\\                             a message is||1
+Cmn96=being sent. If the Message_Not_Sent, this error is really negative.
+Cmn97=\\Status_Desription$        S  A brief description of the status||1
+Cmn98=of the sending process.\\\\PRO2 OPS USED FOR TESTING: [v3.015 (RELEASE)]\\\\COMPILER||1
+Cmn99=USED FOR TESTING: SimplWindows Ver 2.03.18\\\\SAMPLE PROGRAM: 2-
+Cmn100=SERIES  Send E-Mail Demo\\\\REVISION HISTORY: None
+]
+[
+ObjTp=Bk
+Nm1=\
+Sx1=0
+Sy1=0
+Mx1=0
+]
+[
+ObjTp=Bw
+H=1
+Lx=0
+Ly=0
+Rx=813
+Ry=898
+Ym=-1
+SH=6
+Z=100
+Ht=4
+Hi=17
+]
+[
+ObjTp=Symbol
+Name=Send E-Mail
+Code=1
+SmplCName=Send E-Mail.umc
+Smpl-C=3
+Convertable=True
+CompilerTimePrecision=Single_Or_Double_Precision
+Exclusions=1,19,20,21,88,89,167,168,179,216,225,248,249,266,310,
+Hint=Send E-Mail
+SMWRev=0
+TIORev=0
+S+=1
+HelpID=1055
+NumFixedInputs=13
+NumFixedOutputs=17
+NumFixedParams=4
+MinVariableInputs=0
+MinVariableInputsList2=0
+MinVariableInputsList3=0
+MinVariableOutputs=0
+MinVariableOutputsList2=0
+MinVariableOutputsList3=0
+MinVariableParams=0
+SymbolTree=35
+InputSigType1=Digital
+InputSigType2=Digital
+InputSigType3=Digital
+InputSigType4=Digital
+InputSigType5=Digital
+InputSigType6=Digital|Analog|Serial|String
+InputSigType7=Serial
+InputSigType8=Serial
+InputSigType9=Serial
+InputSigType10=Serial
+InputSigType11=Serial
+InputSigType12=Digital|Analog|Serial|String
+InputSigType13=Digital
+OutputSigType1=Digital|Analog|Serial|String
+OutputSigType2=Digital
+OutputSigType3=Digital
+OutputSigType4=Digital
+OutputSigType5=Digital
+OutputSigType6=Digital|Analog|Serial|String
+OutputSigType7=Serial
+OutputSigType8=Serial
+OutputSigType9=Serial
+OutputSigType10=Serial
+OutputSigType11=Digital|Analog|Serial|String
+OutputSigType12=Digital
+OutputSigType13=Digital
+OutputSigType14=Digital
+OutputSigType15=Digital|Analog|Serial|String
+OutputSigType16=Analog
+OutputSigType17=Serial
+ParamSigType1=Time|Percent|Constant|String|FileName|HexAddress|Any
+InputCue1=Clear_Fields
+InputCue2=Edit_To
+InputCue3=Edit_CC
+InputCue4=Edit_Subject
+InputCue5=Edit_Message
+InputCue6=[~UNUSED~]
+InputCue7=To$
+InputCue8=CC$
+InputCue9=Subject$
+InputCue10=Message$
+InputCue11=Text_From_Keyboard$
+InputCue12=[~UNUSED~]
+InputCue13=Send
+OutputCue1=[~UNUSED~]
+OutputCue2=Edit_To_Fb
+OutputCue3=Edit_CC_Fb
+OutputCue4=Edit_Subject_Fb
+OutputCue5=Edit_Message_Fb
+OutputCue6=[~UNUSED~]
+OutputCue7=To_Fb$
+OutputCue8=CC_Fb$
+OutputCue9=Subject_Fb$
+OutputCue10=Message_Fb$
+OutputCue11=[~UNUSED~]
+OutputCue12=Message_Sucessfully_Sent
+OutputCue13=Message_Sent_With_Errors
+OutputCue14=Message_Not_Sent
+OutputCue15=[~UNUSED~]
+OutputCue16=Error_Number
+OutputCue17=Status_Description$
+ParamCue1=From:(Max 242 Characters)
+ParamCue2=Server:(Max 40 Characters)
+ParamCue3=User Login Name(Max 254 Characters)
+ParamCue4=User Login Password(Max 254 Characters)
+FileName=Send E-Mail.umc
+]
+[
+ObjTp=Sm
+H=1
+SmC=157
+Nm=Central Control Modules
+CF=2
+n1I=1
+n1O=1
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=2
+SmC=157
+Nm=Network Modules
+CF=2
+n1I=1
+n1O=1
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=3
+SmC=157
+Nm=Ethernet
+CF=2
+n1I=1
+n1O=1
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=4
+SmC=156
+Nm=Logic
+CF=2
+mC=15
+C1=7
+C2=8
+C3=9
+C4=10
+C5=11
+C6=12
+C7=18
+C8=14
+C9=19
+C10=15
+C11=20
+C12=16
+C13=21
+C14=17
+C15=13
+]
+[
+ObjTp=Sm
+H=5
+SmC=157
+Nm=DefineArguments
+CF=2
+n1I=1
+n1O=1
+mC=1
+C1=6
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=6
+SmC=55
+PrH=5
+CF=2
+n1I=13
+n1O=17
+mI=13
+I1=4
+I2=28
+I3=25
+I4=27
+I5=29
+I6=43
+I7=6
+I8=7
+I9=8
+I10=9
+I11=42
+I12=43
+I13=10
+mO=17
+tO=17
+O1=43
+O2=30
+O3=31
+O4=32
+O5=33
+O6=43
+O7=34
+O8=35
+O9=36
+O10=37
+O11=43
+O12=12
+O13=14
+O14=15
+O15=43
+O16=11
+O17=13
+mP=4
+P1=From:(Max 242 Characters)
+P2=Server:(Max 40 Characters)
+P3=User Login Name(Max 254 Characters)
+P4=User Login Password(Max 254 Characters)
+]
+[
+ObjTp=Sm
+H=7
+SmC=89
+PrH=4
+CF=2
+n1I=1
+n1O=1
+Cmn1=Send From field\\
+mI=1
+I1=17
+mO=1
+tO=1
+O1=22
+mP=1
+P1=\[#From:(Max 242 Characters)\]
+]
+[
+ObjTp=Sm
+H=8
+SmC=89
+PrH=4
+CF=2
+n1I=1
+n1O=1
+Cmn1=Send server field\\
+mI=1
+I1=19
+mO=1
+tO=1
+O1=23
+mP=1
+P1=\[#Server:(Max 40 Characters)\]
+]
+[
+ObjTp=Sm
+H=9
+SmC=89
+PrH=4
+CF=2
+n1I=1
+n1O=1
+Cmn1=Send user login name field\\
+mI=1
+I1=20
+mO=1
+tO=1
+O1=24
+mP=1
+P1=\[#User Login Name(Max 254 Characters)\]
+]
+[
+ObjTp=Sm
+H=10
+SmC=89
+PrH=4
+CF=2
+n1I=1
+n1O=1
+Cmn1=Send user login password field\\
+mI=1
+I1=21
+mO=1
+tO=1
+O1=26
+mP=1
+P1=\[#User Login Password(Max 254 Characters)\]
+]
+[
+ObjTp=Sm
+H=11
+SmC=9
+PrH=4
+CF=2
+n1I=3
+n1O=2
+Cmn1=Create startup pulse\\
+mI=3
+I1=2
+mO=2
+tO=2
+O1=16
+mP=1
+P1=1t
+]
+[
+ObjTp=Sm
+H=12
+SmC=98
+PrH=4
+CF=2
+n1I=1
+n1O=5
+Cmn1=Send parameter fields into SIMPL+\\
+mI=1
+I1=16
+mO=5
+tO=5
+O1=18
+O2=17
+O3=19
+O4=20
+O5=21
+mP=8
+P1=0.0s
+P2=0.1s
+P3=0.2s
+P4=0.1s
+P5=0.2s
+P6=0.1s
+P7=0.2s
+P8=0.1s
+]
+[
+ObjTp=Sm
+H=13
+SmC=103
+Nm=Send Email.usp
+PrH=4
+CF=2
+n1I=6
+n2I=9
+n1O=3
+mI=15
+I1=4
+I2=30
+I3=31
+I4=32
+I5=33
+I6=10
+I7=22
+I8=23
+I9=24
+I10=26
+I11=6
+I12=7
+I13=8
+I14=9
+I15=42
+mO=10
+tO=10
+O1=12
+O2=14
+O3=15
+O4=11
+O5=34
+O6=35
+O7=36
+O8=37
+O9=13
+O10=42
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=14
+SmC=13
+PrH=4
+CF=2
+n1I=3
+n1O=2
+Cmn1=Edit to\\
+mI=3
+I2=38
+I3=28
+mO=2
+tO=2
+O1=30
+]
+[
+ObjTp=Sm
+H=15
+SmC=13
+PrH=4
+CF=2
+n1I=3
+n1O=2
+Cmn1=Edit cc\\
+mI=3
+I2=39
+I3=25
+mO=2
+tO=2
+O1=31
+]
+[
+ObjTp=Sm
+H=16
+SmC=13
+PrH=4
+CF=2
+n1I=3
+n1O=2
+Cmn1=Edit subject\\
+mI=3
+I2=41
+I3=27
+mO=2
+tO=2
+O1=32
+]
+[
+ObjTp=Sm
+H=17
+SmC=13
+PrH=4
+CF=2
+n1I=3
+n1O=2
+Cmn1=Edit message\\
+mI=3
+I2=40
+I3=29
+mO=2
+tO=2
+O1=33
+]
+[
+ObjTp=Sm
+H=18
+SmC=3
+PrH=4
+CF=2
+n1I=3
+n1O=1
+Cmn1=Clear edit to toggle\\
+mI=3
+I1=25
+I2=27
+I3=29
+mO=1
+tO=1
+O1=38
+]
+[
+ObjTp=Sm
+H=19
+SmC=3
+PrH=4
+CF=2
+n1I=3
+n1O=1
+Cmn1=Clear edit cc toggle\\
+mI=3
+I1=28
+I2=27
+I3=29
+mO=1
+tO=1
+O1=39
+]
+[
+ObjTp=Sm
+H=20
+SmC=3
+PrH=4
+CF=2
+n1I=3
+n1O=1
+Cmn1=Clear edit subject toggle\\
+mI=3
+I1=28
+I2=25
+I3=29
+mO=1
+tO=1
+O1=41
+]
+[
+ObjTp=Sm
+H=21
+SmC=3
+PrH=4
+CF=2
+n1I=3
+n1O=1
+Cmn1=Clear edit message toggle\\
+mI=3
+I1=28
+I2=25
+I3=27
+mO=1
+tO=1
+O1=40
+]
+[
+ObjTp=Sg
+H=4
+Nm=Clear_Fields
+]
+[
+ObjTp=Sg
+H=6
+Nm=To$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=7
+Nm=CC$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=8
+Nm=Subject$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=9
+Nm=Message$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=10
+Nm=Send
+]
+[
+ObjTp=Sg
+H=11
+Nm=Error_Number
+SgTp=2
+]
+[
+ObjTp=Sg
+H=12
+Nm=Message_Sucessfully_Sent
+]
+[
+ObjTp=Sg
+H=13
+Nm=Status_Description$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=14
+Nm=Message_Sent_With_Errors
+]
+[
+ObjTp=Sg
+H=15
+Nm=Message_Not_Sent
+]
+[
+ObjTp=Sg
+H=16
+Nm=start
+]
+[
+ObjTp=Sg
+H=17
+Nm=send_from
+]
+[
+ObjTp=Sg
+H=18
+Nm=//dn/a_1
+]
+[
+ObjTp=Sg
+H=19
+Nm=send_server
+]
+[
+ObjTp=Sg
+H=20
+Nm=send_name
+]
+[
+ObjTp=Sg
+H=21
+Nm=send_password
+]
+[
+ObjTp=Sg
+H=22
+Nm=from$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=23
+Nm=server$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=24
+Nm=name$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=25
+Nm=Edit_CC
+]
+[
+ObjTp=Sg
+H=26
+Nm=password$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=27
+Nm=Edit_Subject
+]
+[
+ObjTp=Sg
+H=28
+Nm=Edit_To
+]
+[
+ObjTp=Sg
+H=29
+Nm=Edit_Message
+]
+[
+ObjTp=Sg
+H=30
+Nm=Edit_To_Fb
+]
+[
+ObjTp=Sg
+H=31
+Nm=Edit_CC_Fb
+]
+[
+ObjTp=Sg
+H=32
+Nm=Edit_Subject_Fb
+]
+[
+ObjTp=Sg
+H=33
+Nm=Edit_Message_Fb
+]
+[
+ObjTp=Sg
+H=34
+Nm=To_Fb$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=35
+Nm=CC_Fb$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=36
+Nm=Subject_Fb$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=37
+Nm=Message_Fb$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=38
+Nm=clear_edit_to_toggle
+]
+[
+ObjTp=Sg
+H=39
+Nm=clear_edit_cc_toggle
+]
+[
+ObjTp=Sg
+H=40
+Nm=clear_edit_message_toggle
+]
+[
+ObjTp=Sg
+H=41
+Nm=clear_edit_subject_toggle
+]
+[
+ObjTp=Sg
+H=42
+Nm=Text_From_Keyboard$
+SgTp=4
+]
+[
+ObjTp=Sg
+H=43
+Nm=[~UNUSED~]
+SgTp=31
+]
